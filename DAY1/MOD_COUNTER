@@ -1,0 +1,11 @@
+module MOD_COUNTER#(parameter n=10,N=4)(clk,reset,q);
+output reg [N-1:0]q;
+input clk,reset;
+always@(posedge clk);
+if(reset ,q==n)begin
+q<=0;
+end
+else
+q<=q+1;
+end
+endmodule

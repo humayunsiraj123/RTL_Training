@@ -1,0 +1,84 @@
+module fulladder(a,b,cin,sum,cout);
+input a,b,cin;
+output sum,cout;
+assign sum=(a^b)^cin;
+assign cout=(a^b)&cin|(a&b);
+endmodule
+
+module tb;
+reg a,b,cin;
+wire sum,cout;
+fulladder f1(.a(a),.b(b),.cin(cin),.sum(sum),.cout(cout));
+initial begin
+a=1;
+b=1;
+cin=0;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+#100;
+a=$random;
+b=$random;
+cin=$random;
+
+end
+endmodule
+

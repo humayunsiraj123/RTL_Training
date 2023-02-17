@@ -1,0 +1,116 @@
+module MOD_COUNTER1(clk,reset,q);
+output reg [3:0]q;
+input clk,reset;
+always@(posedge clk)begin
+if(reset || q==4'd10)begin
+q<=0;
+end
+else
+q<=q+1'b1;
+end
+endmodule
+
+module TFF(clk,reset,toggle,qt);
+input clk,reset,toggle;
+output reg qt;
+always@(posedge clk)
+begin
+if(reset)
+qt=1'b0;
+else if(toggle)
+qt=~qt;
+else
+qt=qt;
+end
+endmodule
+
+module TB;
+reg clk,reset;
+//int s=4;
+//int K=10;
+wire [3:0]q;
+wire qt;
+reg toggle;
+
+TFF tff1(.clk(clk),.reset(reset),.toggle(toggle),.qt(qt));
+MOD_COUNTER1 counter(.clk(clk),.reset(reset),.q(q));
+
+always begin
+#50;toggle=$random;
+end
+
+initial begin
+clk=1'b0;
+reset=1'b0;
+end
+always 
+begin
+#5 clk=~clk;
+end
+always
+begin
+#500 reset=~reset;
+end
+initial begin
+
+$display("the value of count =%d",q);
+#10;
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+#10;
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+#10;
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+#10;$display("the value of count =%d",q);
+
+
+end
+endmodule
