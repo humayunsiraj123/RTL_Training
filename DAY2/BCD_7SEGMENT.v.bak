@@ -1,0 +1,81 @@
+module BCD_7SEGMENT(bcd,hex);
+input [3:0]bcd;
+output reg [6:0]hex;
+
+initial begin
+hex=7'b000_0000;
+end
+
+always@(bcd)
+begin
+case(bcd)
+4'd0:hex=7'b011_1111;
+4'd1:hex=7'b000_0110;
+4'd2:hex=7'b101_1011;
+4'd3:hex=7'b100_1111;
+4'd4:hex=7'b110_0110;
+4'd5:hex=7'b110_1101;
+4'd6:hex=7'b111_1101;
+4'd7:hex=7'b000_0111;
+4'd8:hex=7'b111_1111;
+4'd9:hex=7'b110_0111;
+default:hex=7'b000_0000;
+
+endcase 
+end
+endmodule
+
+module TB7seg;
+
+wire [6:0]hex;
+reg [3:0]bcd;
+
+BCD_7SEGMENT dut(.bcd(bcd),.hex(hex));
+initial begin
+bcd=4'd0;
+#50;
+bcd=4'd1;
+#100;
+bcd=4'd2;
+#100;
+bcd=4'd3;
+#100;
+bcd=4'd4;
+#100;
+bcd=4'd5;
+#100;
+bcd=4'd6;
+#100;
+bcd=4'd7;
+#100;
+bcd=4'd8;
+#100;
+bcd=4'd9;
+#100;
+bcd=4'd8;
+#100;
+bcd=4'd7;
+#50;
+bcd=4'd6;
+#100;
+bcd=4'd5;
+#100;
+bcd=4'd4;
+#100;
+bcd=4'd3;
+#100;
+bcd=4'd2;
+#100;
+bcd=4'd1;
+#100;
+bcd=4'd0;
+#100;
+bcd=4'd5;
+#100;
+bcd=4'd3;
+#100;
+bcd=4'd1;
+#100;
+end
+$display("the value of  BCD = %d and 7 segment = %b" ,bcd,hex);
+endmodule
