@@ -1,0 +1,9 @@
+C:/intelFPGA/18.1/Barrell_Shifter.v {1 {vlog -work work -stats=none C:/intelFPGA/18.1/Barrell_Shifter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Barrell_Shifter
+-- Compiling module mux_2to1
+
+Top level modules:
+	Barrell_Shifter
+
+} {} {}}
