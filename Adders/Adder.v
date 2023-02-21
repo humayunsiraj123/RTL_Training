@@ -1,0 +1,73 @@
+module Adder (
+	input 		[31:0] a,
+	input 		[31:0] b,
+	input 	     	       cin,
+	output 		[31:0] sum,
+	output   	       cout,
+	output  	[32:0] result,
+	output 		[32:0] resultx	
+	);
+
+wire [32:0]c;
+assign c[0]=cin;
+genvar i;
+generate 
+	
+		for (i=0 ;i<32 ;i=i+1)  begin
+			full_adder fx (.a(a[i]) , .b(b[i]) , .cin(c[i]) , .sum(sum[i]) ,.cout(c[i+1]));
+		end
+endgenerate 
+assign cout =c[32];
+assign result={cout,sum};
+assign resultx=a+b+{30'b0,cin};
+endmodule
+
+
+
+
+
+
+module half_adder (
+	input a,
+	input b,
+	output sum,
+	output cout
+);
+	assign sum  = a ^ b;
+	assign cout = a & b;
+endmodule
+
+module full_adder_HA (
+	input a ,
+	input b ,
+ 	output cout,
+	output sum
+);
+wire [1:0] c;
+
+half_adder h1 (.a(a),.b(b),.sum(c[0]),.cout(c[1]) );
+half_adder h2 (.a(c[0]),.b(c[1]),.sum(sum),.cout(cout));
+endmodule
+
+
+module full_adder (
+	input a,
+	input b,
+	input cin,
+	output sum,
+	output cout
+);
+	assign sum  = a ^ b ^ cin;
+	assign cout = (a ^ b) & cin + a & b ;
+endmodule
+
+
+module full_adder_nbit #(parameter N=4) (
+	input  [N-1:0] in1,
+	input  [N-1:0] in2,
+	output [N  :0]  sum
+);
+assign sum =in1 + in2 ;
+endmodule	
+
+
