@@ -1,0 +1,228 @@
+# Compile of FiFo.v failed with 3 errors.
+# Compile of FiFo.v failed with 5 errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of FiFo.v failed with 4 errors.
+# Compile of FiFo.v failed with 4 errors.
+# Compile of FiFo.v failed with 1 errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of FiFo.v was successful.
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_fifo
+# vsim -gui work.tb_fifo 
+# Start time: 02:55:32 on Feb 22,2023
+# Loading work.tb_fifo
+# Loading work.FiFo
+# ** Error: (vsim-3033) C:/intelFPGA/New folder/FiFo.v(8): Instantiation of 'memory' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo/dut File: C:/intelFPGA/New folder/FiFo.v
+#         Searched libraries:
+#             C:/intelFPGA/New folder/work
+# ** Error: (vsim-3033) C:/intelFPGA/New folder/FiFo.v(9): Instantiation of 'read_ptr' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo/dut File: C:/intelFPGA/New folder/FiFo.v
+#         Searched libraries:
+#             C:/intelFPGA/New folder/work
+# Loading work.status_signal
+# ** Error: (vsim-3033) C:/intelFPGA/New folder/FiFo.v(11): Instantiation of 'write_ptr' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo/dut File: C:/intelFPGA/New folder/FiFo.v
+#         Searched libraries:
+#             C:/intelFPGA/New folder/work
+# Error loading design
+# End time: 02:55:33 on Feb 22,2023, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 0
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_fifo
+# vsim -gui work.tb_fifo 
+# Start time: 02:57:15 on Feb 22,2023
+# Loading work.tb_fifo
+# Loading work.FiFo
+# Loading work.memory_array
+# Loading work.read_ptr
+# Loading work.status_signal
+# Loading work.write_ptr
+# ** Error: (vsim-3043) C:/intelFPGA/New folder/tb_fifo.v(57): Unresolved reference to 'fifo'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo File: C:/intelFPGA/New folder/tb_fifo.v
+# ** Warning: (vsim-3015) C:/intelFPGA/New folder/FiFo.v(8): [PCDPC] - Port size (1) does not match connection size (8) for port 'data_out'. The port definition is at: C:/intelFPGA/New folder/FiFo.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo/dut/ma File: C:/intelFPGA/New folder/FiFo.v
+# ** Warning: (vsim-3015) C:/intelFPGA/New folder/FiFo.v(8): [PCDPC] - Port size (5) does not match connection size (1) for port 'rptr'. The port definition is at: C:/intelFPGA/New folder/FiFo.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo/dut/ma File: C:/intelFPGA/New folder/FiFo.v
+# Error loading design
+# End time: 02:57:16 on Feb 22,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 2
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_fifo
+# vsim -gui work.tb_fifo 
+# Start time: 02:59:06 on Feb 22,2023
+# Loading work.tb_fifo
+# Loading work.FiFo
+# Loading work.memory_array
+# Loading work.read_ptr
+# Loading work.status_signal
+# Loading work.write_ptr
+# ** Error: (vsim-3043) C:/intelFPGA/New folder/tb_fifo.v(57): Unresolved reference to 'fifo'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo File: C:/intelFPGA/New folder/tb_fifo.v
+# ** Warning: (vsim-3015) C:/intelFPGA/New folder/FiFo.v(8): [PCDPC] - Port size (5) does not match connection size (1) for port 'rptr'. The port definition is at: C:/intelFPGA/New folder/FiFo.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo/dut/ma File: C:/intelFPGA/New folder/FiFo.v
+# Error loading design
+# End time: 02:59:06 on Feb 22,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_fifo
+# vsim -gui work.tb_fifo 
+# Start time: 03:02:06 on Feb 22,2023
+# Loading work.tb_fifo
+# Loading work.FiFo
+# Loading work.memory_array
+# Loading work.read_ptr
+# Loading work.status_signal
+# Loading work.write_ptr
+# ** Error: (vsim-3043) C:/intelFPGA/New folder/tb_fifo.v(57): Unresolved reference to 'fifo'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo File: C:/intelFPGA/New folder/tb_fifo.v
+# Error loading design
+# End time: 03:02:06 on Feb 22,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Compile of FiFo.v failed with 11 errors.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 1 failed with 11 errors.
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FiFo.v failed with 2 errors.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FiFo.v failed with 1 errors.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_fifo
+# vsim -gui work.tb_fifo 
+# Start time: 03:09:44 on Feb 22,2023
+# Loading work.tb_fifo
+# Loading work.FiFo
+# Loading work.memory_array
+# Loading work.read_ptr
+# Loading work.status_signal
+# Loading work.write_ptr
+# ** Error: (vsim-3043) C:/intelFPGA/New folder/tb_fifo.v(57): Unresolved reference to 'fifo'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo File: C:/intelFPGA/New folder/tb_fifo.v
+# Error loading design
+# End time: 03:09:45 on Feb 22,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_fifo
+# vsim -gui work.tb_fifo 
+# Start time: 03:10:18 on Feb 22,2023
+# Loading work.tb_fifo
+# Loading work.FiFo
+# Loading work.memory_array
+# Loading work.read_ptr
+# Loading work.status_signal
+# Loading work.write_ptr
+# ** Error: (vsim-3043) C:/intelFPGA/New folder/tb_fifo.v(57): Unresolved reference to 'fifo'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fifo File: C:/intelFPGA/New folder/tb_fifo.v
+# Error loading design
+# End time: 03:10:19 on Feb 22,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_fifo
+# vsim -gui work.tb_fifo 
+# Start time: 03:11:07 on Feb 22,2023
+# Loading work.tb_fifo
+# Loading work.FiFo
+# Loading work.memory_array
+# Loading work.read_ptr
+# Loading work.status_signal
+# Loading work.write_ptr
+add wave sim:/tb_fifo/*
+run
+# data_in 128   wr =1 rd =0 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in 128   wr =0 rd =1 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in 255   wr =1 rd =0 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in 128   wr =0 rd =1 reset =1  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in 128   wr =0 rd =1 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in  36   wr =1 rd =0 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in   9   wr =1 rd =0 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in  13   wr =1 rd =0 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in 101   wr =0 rd =1 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in   1   wr =1 rd =0 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+run
+run
+# Compile of FiFo.v was successful.
+# Compile of tb_fifo.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_fifo
+# End time: 03:13:28 on Feb 22,2023, Elapsed time: 0:02:21
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_fifo 
+# Start time: 03:13:28 on Feb 22,2023
+# Loading work.tb_fifo
+# Loading work.FiFo
+# Loading work.memory_array
+# Loading work.read_ptr
+# Loading work.status_signal
+# Loading work.write_ptr
+add wave sim:/tb_fifo/*
+run
+# data_in 128   wr =1 rd =0 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in 128   wr =0 rd =1 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in 255   wr =1 rd =0 reset =0  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+run
+# data_in 128   wr =0 rd =1 reset =1  Data_out =   x  overflow x  underflow x full x empty x threshold x 
+# data_in 128   wr =0 rd =1 reset =1  Data_out =   x  overflow 0  underflow 0 full 0 empty 1 threshold 0 
+run
+# data_in 128   wr =0 rd =1 reset =0  Data_out =   x  overflow 0  underflow 1 full 0 empty 1 threshold 0 
+run
+# data_in  36   wr =1 rd =0 reset =0  Data_out =   x  overflow 0  underflow 1 full 0 empty 1 threshold 0 
+# data_in  36   wr =1 rd =0 reset =0  Data_out =  36  overflow 0  underflow 0 full 0 empty 0 threshold 0 
+# data_in  36   wr =1 rd =0 reset =0  Data_out =  36  overflow 0  underflow 0 full 0 empty 0 threshold 1 
+run
+# data_in   9   wr =1 rd =0 reset =0  Data_out =  36  overflow 0  underflow 0 full 0 empty 0 threshold 1 
+# data_in   9   wr =1 rd =0 reset =0  Data_out =  36  overflow 0  underflow 0 full 1 empty 0 threshold 1 
+run
+# data_in  13   wr =1 rd =0 reset =0  Data_out =  36  overflow 0  underflow 0 full 1 empty 0 threshold 1 
+run
+# data_in 101   wr =0 rd =1 reset =0  Data_out =  36  overflow 0  underflow 0 full 1 empty 0 threshold 1 
+run
+# data_in   1   wr =1 rd =0 reset =0  Data_out =  36  overflow 0  underflow 0 full 1 empty 0 threshold 1 
+run
+run
+run
+run
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/intelFPGA/New folder/wave.do}
