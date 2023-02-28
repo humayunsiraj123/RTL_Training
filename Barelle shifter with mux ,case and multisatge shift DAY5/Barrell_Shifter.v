@@ -71,9 +71,9 @@ module barrel_shifter_multi_stage (
 	output [7:0] s3      	
  	);
 
-assign s1 = select[2] ? ({data[3:0],data[7:4]})  :data;
+	assign s1 = select[0] ? ({data[0],data[7:1]})  :data;
 assign s2 = select[1] ? ({data[1:0],data[7:2]})  :s1  ;
-assign s3 = select[0] ? ({data[0]  ,data[7:1]})  :s2  ;
+	assign s3 = select[2] ? ({data[3:0]  ,data[7:4]})  :s2  ;
 assign out= s3;
 
 endmodule
