@@ -140,6 +140,8 @@ endmodule
 module tb_barrell_shifter ;
  wire [7:0] result ;
  wire [7:0] resultC;
+	wire [7:0] result_rotate;
+		
  wire [7:0] stage1 ;
  wire [7:0] stage2 ;
  wire [7:0] stage3 ;
@@ -152,7 +154,7 @@ module tb_barrell_shifter ;
 Barrell_Shifter            dut  (.data(data) , .shifter(shifter) , .result(result)                                      );
 barrel_shifter_multi_stage dut1 (.data(data) , .select (shifter) ,  .out(out) , .s1(stage1) ,.s2(stage2) ,.s3(stage3));
 Barrell_shifter_case       dut2 (.data(data) , .control(shifter) , .result(resultC)                                      );
-
+	Barrell_Shifter_rotate     dut3 (.data(data) , .shifter(shifter) , .result(result_rotate)                                      );
 initial begin
 	data    = 8'd16;
 	shifter = 3'd4  ;
@@ -176,7 +178,7 @@ initial begin
 	end
 	end
 	initial begin
-	$monitor("The input is %d and shift by %d Result =%d Case Result =%d  Multisatge result %d ",data,shifter,result,resultC,out);
+		$monitor("The input is %d and shift by %d Result =%d Case Result =%d  Multisatge result %d  Rotate Result =%d ",data,shifter,result,resultC,out,result_rotate);
 	end
  
 endmodule
