@@ -27,7 +27,7 @@ module tb;
     byte symbol;  
   }
   fifo_struct;
-  fifo_struct driver2,driver1 ;
+  fifo_struct driver2,driver1,driver3 ;
   
   initial begin
      signal1='{1,0,3'd4};
@@ -37,10 +37,11 @@ module tb;
     $display("the struct is  %p",fifo_in);
  driver2 = '{0,1,50,"typdef2",8,8'hdd};
    driver1 = '{1,0,100,"typdef",10,8'haf};
-    
+    dirver3='{1,1,11,"dirver3",3,8'hab};
     $display("..........................");
     $display("the struct typedef1 driver is  %p",driver1);
     $display("the struct with type def is  %p",driver2);
+    $display("the struct with type def is  %p",driver3);
     $display("..........................");
     $display("the struct signal1  %p",signal1);
     $display("the struct signal2  %p",signal2);
