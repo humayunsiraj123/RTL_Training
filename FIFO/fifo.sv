@@ -56,7 +56,7 @@ input clk,
           begin
           w_next=w_reg+1;
             empty_next=1'b0;
-            if(w_next ==r_reg)
+            if(w_next =={ADDR{1'b1}})
               full_next=1'b1;
           end
       2'b01:
@@ -64,7 +64,7 @@ input clk,
         begin
   		r_next=r_reg+1;
           full_next=1'b0;
-          if(r_next==w_reg)
+          if(r_next=={ADDR{1'b0}})
             empty_next=1'b1;
         end
       2'b11:
