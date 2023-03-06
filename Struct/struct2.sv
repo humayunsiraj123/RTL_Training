@@ -29,7 +29,7 @@ module tb;
     
     $display("the struct signal1  %p",driver(1,1,1,8'haf,8'hff));
     $display("the data_out %h",driver_struct_2.data_out);
-    $display("the struct signal2  %p",driver_struct_2);
+	  $display("the struct signal2  %p",driver_struct_2); 
     
   end
       
