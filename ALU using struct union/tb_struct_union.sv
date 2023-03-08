@@ -1,8 +1,5 @@
 module tb_struct_union;
 
-logic[31:0] a,b,c;
-bit signed [31:0]s_a,s_b,s_c;
-
 typedef enum bit[2:0] {add,sub,mul,div,sl,sr} opcode_t;
 typedef  enum {sign,unsign} operand_type_t;
 
@@ -10,6 +7,11 @@ typedef union packed{
 logic [31:0] u_data;
 bit signed[31:0] s_data;
 }data_t;
+
+typedef union packed{ 
+logic [63:0] u_data;
+bit signed [63:0] s_data;
+} l_data_t;
 typedef struct packed{
 opcode_t opr;
 operand_type_t opr_type;
@@ -17,7 +19,7 @@ data_t opr_a;
 data_t opr_b;
 }instr_t;
 instr_t IW;
-data_t result;
+l_data_t result;
 
 struct_union alu1(IW,result);
 
