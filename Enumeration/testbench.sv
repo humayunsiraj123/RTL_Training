@@ -32,6 +32,12 @@ initial begin
       $display("the name is %s at in index %0d",alpha.name(),alpha);
       alpha=alpha.next();
     end
+  state=state.first();
+  for(int i=0;i<4;i++)
+    begin
+      $display("the name is %s at in index %0d",state.name(),state);
+      alpha=alpha.next();
+    end
 
   
 end
