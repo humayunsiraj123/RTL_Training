@@ -31,30 +31,30 @@ IW.opr_b='h20;
 IW.opr_type=sign;
 IW.opr=add;
 display();
-#100;
+  delay_c(100);
 IW.opr=IW.opr.next();
 display();
-#100;
+delay_c(100);
 IW.opr=IW.opr.next();
 display();
-#100;
+delay_c(100);
 IW.opr=IW.opr.next();
 display();
-#100;
+delay_c(100);
 IW.opr=IW.opr.next();
 display();
-#100;
+delay_c(100);
 IW.opr=IW.opr.next();
 
-#100;
+delay_c(100);
 IW.opr=IW.opr.next();
 display();
-#100;
+delay_c(100);
 IW.opr=IW.opr.next();
 display();
 repeat(10) 
 begin
-#100;
+delay_c(100);
 randomizer();
 
 end
@@ -70,6 +70,11 @@ IW.opr_type=sign;
 IW.opr=IW.opr.next();
 display();
 endtask
-
+  task delay_c(int val);
+  #val;
+  endtask
+  task delay_s(int val);
+    repeat(val) @posedge clk;
+  endtask
 endmodule
  
