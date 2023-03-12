@@ -9,18 +9,27 @@ module tb_fifo;
   logic [WIDTH-1:0] data_in;
   logic [WIDTH-1:0] data_out;
   logic [WIDTH-1:0] data_out_m;
-  
+  logic [WIDTH-1:0] data_out_d; 
   logic write ;
   logic read;
- 
   logic writ_m ;
   logic read_m;
+  logic writ_m_d ;
+  logic read_m_d;
+  int count_fdata,count_tdata,count_ffull,count_fempty,count_tempty,count_tfull;
  
   always #5 clk=~clk;
   
    
   fifo fifo1(clk,rst_n,read,write,data_in,data_out,full,empty);
   fifo_model fm(clk,rst_n,write,data_in,data_out_m,full_m,empty_m);
+  always_ff (posedge clk)
+    begin
+      data_out_d = data_out_m;
+      write_m_d  = write_m;
+      read_m_d   = read_m
+    end
+  
   
   initial begin  
      $dumpfile("dump.vcd");
@@ -62,6 +71,18 @@ module tb_fifo;
       result();
     
       randomizer();
+        delay(5);
+        fork 
+          repeat(100) begin driver_random(count_tdata,count_tfull,count_fempty,count_fdata,count_tful,count_fempty);
+            delay(1);
+          end
+          forever begin
+            monitor();
+            delay(1)
+          end
+        join_any
+        $display("Result");
+        $display("count_tdata = %d,count_tfull %d ,count_fempty = %d ,count_fdata = %d,count_tful = %d,count_fempty =%d ",count_tdata,count_tfull,count_fempty,count_fdata,count_tful,count_fempty);
       end
     delay(5);
     $stop;
@@ -72,7 +93,15 @@ module tb_fifo;
     $display("empty    %b  full   %b             data_out   %b",empty,full,data_out); 
     $display("empty_m  %b  full_m %b             data_out_m %b",empty_m,full_m,data_out_m);
   endfunction
- task driver_random;
+      task monitor (output int t_data,t_full,t_empty,f_data,f_full,f_empty);
+        assert(data_out == data_out_m) begin ++t_data; $display("Succes match  expectecd  %h  obtained %h ",data_out_m,data_out);end
+        else begin ++f_data;                           $display("Failed match  expectecd  %h  obtained %h ",data_out_m,data_out);end
+        assert(empty == empty_f) begin ++t_full;        $display("Succes match  expectecd %h  obtained %h ",empty_m,empty);end
+        else begin ++t_empty;                           $display("Failed match  expectecd %h  obtained %h ",empty_m,empty);end
+        assert(data_out == data_out_m) begin ++t_full; $display("Succes match  expectecd  %h  obtained %h ",full_m,full);end
+        else begin ++f_full;                           $display("Failed match  expectecd  %h  obtained %h ",full_m,full);end
+      endtask
+   task driver_random;
    rst_n=random();
    read=random();
    write =random();
@@ -87,6 +116,7 @@ module tb_fifo;
    data_in=data;
  endtask
  
+  
   
   task delay(int x);
     repeat(x) @(posedge clk);
