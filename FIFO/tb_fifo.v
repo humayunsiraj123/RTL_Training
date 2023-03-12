@@ -6,7 +6,13 @@ wire fifo_full,fifo_empty,fifo_thresh,fifo_overflow,fifo_underflow;
 
 
 
-
+  module fifo_model(clk,rst,read,write,[7:0]data_in,data_out,full,empty);
+    input clk,rst,read,write;
+    input [7:0] data_in;
+    output empty ,full;
+    output [7:0] data_out;
+    reg [7:0] memory [$:]
+    
 FiFo dut (data_out,data_in,fifo_full,fifo_empty,fifo_thresh,fifo_overflow,fifo_underflow,clk,reset,wr,rd);
 
 always
