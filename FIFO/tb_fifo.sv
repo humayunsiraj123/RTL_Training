@@ -8,13 +8,20 @@ module tb_fifo;
   logic empty;
   logic [WIDTH-1:0] data_in;
   logic [WIDTH-1:0] data_out;
+  logic [WIDTH-1:0] data_out_m;
+  
   logic write ;
   logic read;
+ 
+  logic writ_m ;
+  logic read_m;
  
   always #5 clk=~clk;
   
    
   fifo fifo1(clk,rst_n,read,write,data_in,data_out,full,empty);
+  fifo_model fm(clk,rst_n,write,data_in,data_out_m,full_m,empty_m);
+  
   initial begin  
      $dumpfile("dump.vcd");
     $dumpvars(1);
@@ -62,7 +69,8 @@ module tb_fifo;
   
   function void result();
     $display("Read  %b  Wriite %b  srst_n %b  data_in %b",read,write,rst_n,data_in);
-    $display("empty  %b  full %b             data_out %b",empty,full,data_out); 
+    $display("empty    %b  full   %b             data_out   %b",empty,full,data_out); 
+    $display("empty_m  %b  full_m %b             data_out_m %b",empty_m,full_m,data_out_m);
   endfunction
   
   task delay(int x);
