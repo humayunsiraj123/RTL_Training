@@ -72,6 +72,21 @@ module tb_fifo;
     $display("empty    %b  full   %b             data_out   %b",empty,full,data_out); 
     $display("empty_m  %b  full_m %b             data_out_m %b",empty_m,full_m,data_out_m);
   endfunction
+ task driver_random;
+   rst_n=random();
+   read=random();
+   write =random();
+   data_in=$urandom_range('h00,'hffff);
+ endtask
+  
+  
+  task driver(logic x,y,z,logic [WIDTH-1:0] data);
+   rst_n=x;
+   read=y;
+   write =z;
+   data_in=data;
+ endtask
+ 
   
   task delay(int x);
     repeat(x) @(posedge clk);
