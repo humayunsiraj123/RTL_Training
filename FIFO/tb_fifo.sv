@@ -1,7 +1,7 @@
 // Code your testbench here
 // or browse Examples
 module tb_fifo;
-  parameter WIDTH=8, DEPTH=64;
+  parameter WIDTH=8, DEPTH=70;
   logic clk=1'b0;
   logic rst_n;
   logic full ;
