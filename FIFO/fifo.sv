@@ -1,5 +1,5 @@
 // Code your design here
-module fifo#(parameter WIDTH =8,DEPTH =64,ADDR=6)(
+module fifo#(parameter WIDTH =8,DEPTH =64,ADDR=$clog(DEPTH)(
 input clk,
   input rst_n,
   input read,
