@@ -31,13 +31,22 @@ IW.opr_b='h20;
 IW.opr_type=sign;
 IW.opr=add;
 display();
-  delay_c(100);
+delay_c(100);
+  
 IW.opr=IW.opr.next();
 display();
 delay_c(100);
 IW.opr=IW.opr.next();
 display();
 delay_c(100);
+  fork 
+    repeat(100) begin
+      delay_C();
+      randomizer();
+    end
+    forever display();
+  join_any;
+  display();
 IW.opr=IW.opr.next();
 display();
 delay_c(100);
