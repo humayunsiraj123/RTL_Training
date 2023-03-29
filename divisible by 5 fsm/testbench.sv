@@ -26,7 +26,7 @@ out);
   
   initial begin
      $dumpfile("dump.vcd");
-      $dumpvars(0,tb_div_5);
+    $dumpvars(0,tb_div_by_5);
   rst_n =1'b0;
     repeat(25) @(posedge clk);
   rst_n =1'b0;
@@ -56,6 +56,7 @@ out);
 		data_in=$random;
           @(posedge clk);
         end
+    $stop;
       end            
 endmodule
   
