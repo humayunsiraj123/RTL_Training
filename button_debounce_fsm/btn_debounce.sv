@@ -1,4 +1,7 @@
-ut reset,
+// Code your design here
+module btn_debounce(
+  input clk,
+input reset,
 input btn,
 output  logic out);
   localparam  [2:0] zero = 3'b000,
@@ -89,3 +92,5 @@ output  logic out);
     end
 
 endmodule
+ 
+  
