@@ -5,6 +5,7 @@ module tb_seq_101;
   logic out;
   
   
+  seq_101_detect DUT(clk,rst_n,data_in,out);
   always #5 clk=~clk;
   
   initial begin
