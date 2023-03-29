@@ -1,8 +1,7 @@
-// Code your design here
-module btn_debounce(
-  input clk,input reset,input btn,output out);
-  localparam  [2:0] 
-  		zero = 3'b000,
+ut reset,
+input btn,
+output  logic out);
+  localparam  [2:0] zero = 3'b000,
   		w1_1 = 3'b001,
   		w1_2 = 3'b010,
   		w1_3 = 3'b011,
@@ -12,10 +11,10 @@ module btn_debounce(
   		w0_3 = 3'b111;
   
   
-  localparam N=5;
+  localparam N=2;
   
-  reg [N-1:0] q_reg;
-  reg [N-1:0] q_next;
+  reg [N-1:0] q_reg =0;
+  reg [N-1:0] q_next ;
   wire tick;
   reg [2:0] nxt_state,cur_state;
   
@@ -25,7 +24,7 @@ module btn_debounce(
     q_reg<=q_next;
   	
   assign q_next=q_reg+1;
-  assign tick = (q_reg==0) ? 1:0;
+  assign tick = (q_reg===0) ? 1:0;
   
   
   always@(posedge clk)
@@ -35,8 +34,7 @@ module btn_debounce(
       cur_state<=nxt_state;
   always @(*)
     begin
-    out =0;
-  	nxt_state=cur_state;
+  nxt_state=cur_state;
       case(cur_state)
         zero :
           if(btn) 
@@ -89,6 +87,5 @@ module btn_debounce(
             nxt_state=zero;
       endcase          
     end
+
 endmodule
- 
-  
