@@ -3,7 +3,7 @@ module div_by_5(
   input clk,
   input rst_n,
   input data_in,
-  output out);
+  output logic out);
   
   typedef enum int {A=0,B,C,D,E} STATE ;
   STATE nxt_state,cur_state;
@@ -57,7 +57,7 @@ module div_by_5(
 		C : out = 1'b0;
 		D : out = 1'b0;
 		E : out = 1'b0;
-        default out =1'b0;
+        default out = 1'b0;
       endcase
         end
   assign nxt_temp = {reg_temp[30:0],data_in};
@@ -73,7 +73,7 @@ module div_by_5_simple(
   input clk,
   input rst_n,
   input data_in,
-  output out);
+  output logic out);
   
  enum logic[2:0]{A,B,C,D,E} nxt_state,cur_state;
 
@@ -130,10 +130,10 @@ module div_by_5_simple(
     begin
       case(cur_state)
         A : out = (rst_n ==1'b0 && data_in === 1'bx) ? 1'b0 :1'b1;
-    	B : out = 1'b0;
-		C : out = 1'b0;
-		D : out = 1'b0;
-		E : out = 1'b0;
+    	B : out =1'b0;
+		C : out =1'b0;
+		D : out =1'b0;
+		E : out =1'b0;
         default out =1'b0;
       endcase
         end
