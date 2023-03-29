@@ -12,6 +12,7 @@ output  logic out);
   		w0_1 = 3'b101,
   		w0_2 = 3'b110,
   		w0_3 = 3'b111;
+  enum [2:0] {zero,w1_[1:3],one,w0_[1:3]} states;
   
   
   localparam N=2;
