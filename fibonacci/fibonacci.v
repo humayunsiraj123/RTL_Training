@@ -5,14 +5,14 @@ input [4:0] in,
 input wire start,
 output reg ready,
 output  reg done,
-output [19:0]fib
+output [N-1:0]fib
 );
 
 localparam [2:0] IDEL = 3'b001,
 		 OP   = 3'b010,
 		 DONE = 3'b100; 
 
-reg [19:0] t0_reg,t0_nxt,t1_reg,t1_nxt;
+reg [N-1:0] t0_reg,t0_nxt,t1_reg,t1_nxt;
 reg [4 :0] n_reg, n_nxt;
 reg [2 :0] cur_state , nxt_state;
 
@@ -56,8 +56,8 @@ IDEL : begin
 	ready =1'b1;
 	if(start)
 		begin
-		t0_nxt = 20'b0;
-		t1_nxt = 20'b1;
+		t0_nxt = 'd0;
+		t1_nxt = 'd1;
 		n_nxt = in;
 		nxt_state = OP;
 		end
@@ -65,7 +65,7 @@ IDEL : begin
 OP : begin
 	if(n_reg==0)
 	begin
-		t1_nxt    = 20'd0;
+		t1_nxt    = 'd0;
 		nxt_state = DONE;
 	
 	end
@@ -86,6 +86,6 @@ DONE :
 	end
 endcase
 end
-
+assign fib = t1_reg;
 endmodule
 
