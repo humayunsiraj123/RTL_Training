@@ -20,11 +20,11 @@ rst=1'b1;
 repeat(25)@(posedge clk);
 rst=1'b0;
 
-in =$urandom_range('h1,'hff);
+in ='d20;
 start = 1'b1;
 repeat(1)@(posedge clk);
 
-repeat(100)  begin
+repeat(1000)  begin
 
 //in =$urandom_range('h1,'hff);
 

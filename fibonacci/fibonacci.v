@@ -38,7 +38,7 @@ else
  begin
 	t0_reg <= t0_nxt;
 	t1_reg <= t1_nxt;
-	n_reg  <= n_reg;	
+	n_reg  <= n_nxt;	
 end
 end
 
@@ -75,7 +75,7 @@ OP : begin
 		begin		
 		t1_nxt = t0_reg + t1_reg;
 		t0_nxt = t1_reg;
-		n_nxt = n_nxt - 5'd1;
+		n_nxt = n_reg - 5'd1;
 		nxt_state = OP;
 		end
 end
