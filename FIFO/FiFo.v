@@ -52,6 +52,7 @@ input [4:0]rptr ,wptr;
 output  reg fifo_full,fifo_empty,fifo_thresh,fifo_overflow,fifo_underflow;
 reg fbit_comp,underflow,overflow, equal;
 wire [4:0]pointer_result;
+
 //assign fbit_comp=wptr[4]^rptr[4];
 //assign equal =(wptr[3:0]-rptr[3:0]) ? 0:1;
 //assign overflow=fifo_full&wr;
