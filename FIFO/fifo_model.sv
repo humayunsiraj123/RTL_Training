@@ -20,9 +20,11 @@ input clk,
   else
     begin
       if(read)
-        data_out=memory.popback();
+        if(!empty)
+          data_out=memory.popback();
       if(write)
-        memory.pushfront(data);
+        if(!full)
+          memory.pushfront(data);
     end
     end
   endmodule
