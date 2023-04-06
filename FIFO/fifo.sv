@@ -57,14 +57,16 @@ input clk,
       2'b10:
         if(~full_reg)
           begin
+            write_enable;
           w_next=w_prt;
-            empty_next=1'b0;
+            empty_next=1'b1;
             if(w_next ==r_reg})
               full_next=1'b1;
           end
       2'b01:
       if(~empty_reg)
         begin
+          read_enable =1'b1;
   		    r_next=r_ptr;
           full_next=1'b0;
           if(r_next==w_reg})
@@ -72,9 +74,20 @@ input clk,
         end
       2'b11:
         begin
-        w_next=w_reg;
-          if(~empty_reg)
-            r_next=r_reg;
+          if(empty==1 && full == 0)
+            begin
+            write_enable=1;
+            read_enable =0;
+            w_next=w_prt;
+            empty=1'b0;
+            end
+           else
+             begin 
+              write_enable =1'b1;
+              read_enable  =1'b1;
+              w_next=w_prt;
+               r_next=r_ptr;
+             end
         end
     endcase
   end
