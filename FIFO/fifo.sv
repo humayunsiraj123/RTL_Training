@@ -19,12 +19,12 @@ input clk,
  assign write_enable = write & ~full_reg;
   
   always @(posedge clk)
-      if(write_enable)
-        memory[w_reg]=data_in;
-  
-  assign data_out=memory[r_reg];
-  
-  
+    if(rst_n &&write_enable)
+      memory[w_reg]<=data_in;
+  always_ff@ (posedge clk)
+    if(rst_n && read_enable)
+        data_out <= memory[r_reg] ;
+           
   always@(posedge clk)
     begin
       if(~rst_n)
@@ -43,13 +43,16 @@ input clk,
         end
     end
   
-  
   always @(*)
   begin
+    read_enable=0;
+    write_enable=0;
     r_next=r_reg;
   	w_next=w_reg;
-  full_next=full_reg;
-  empty_next=empty_reg;
+    full_next=full_reg;
+    empty_next=empty_reg;
+    r_prt = r_reg == (DEPTH -1) ? 0: r_reg +1;
+    w_prt = w_reg == (DEPTH -1) ? 0: w_reg +1;
     case({write,read})
       2'b10:
         if(~full_reg)
