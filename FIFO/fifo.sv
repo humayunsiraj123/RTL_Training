@@ -57,17 +57,17 @@ input clk,
       2'b10:
         if(~full_reg)
           begin
-          w_next=w_reg==DEPTH?0:w_reg+1;
+          w_next=w_prt;
             empty_next=1'b0;
-            if(w_next =={ADDR{1'b1}})
+            if(w_next ==r_reg})
               full_next=1'b1;
           end
       2'b01:
       if(~empty_reg)
         begin
-  		r_next=r_reg==DEPTH?0:r_reg+1;
+  		    r_next=r_ptr;
           full_next=1'b0;
-          if(r_next=={ADDR{1'b0}})
+          if(r_next==w_reg})
             empty_next=1'b1;
         end
       2'b11:
