@@ -94,16 +94,16 @@ module div_by_5_simple(
     begin
       case(cur_state)
         A : begin
-          if(data_in ==1'b1) 
+		if(data_in ==1'b1) 
           	nxt_state = B ;
        	 else
            nxt_state  = A;
         	end
     	B : begin
-          if(data_in == 1'b0) 
-          	nxt_state = C ;
+		if(data_in == 1'b1) 
+          	nxt_state = D ;
        	 else
-           nxt_state  = D;
+           nxt_state  = C;
         	end
         C : begin
           if(data_in ==1'b1) 
@@ -126,18 +126,9 @@ module div_by_5_simple(
       endcase
         end
   
- always_comb
-    begin
-      case(cur_state)
-        A : out = (rst_n ==1'b0 && data_in === 1'bx) ? 1'b0 :1'b1;
-    	B : out =1'b0;
-		C : out =1'b0;
-		D : out =1'b0;
-		E : out =1'b0;
-        default out =1'b0;
-      endcase
-        end
 
+	assign  out =(cur_state==A) ? 1'b1 :1'b0;
+    
   
 endmodule
 
