@@ -51,8 +51,8 @@ input clk,
   	w_next=w_reg;
     full_next=full_reg;
     empty_next=empty_reg;
-    r_prt = r_reg == (DEPTH -1) ? 0: r_reg +1;
-    w_prt = w_reg == (DEPTH -1) ? 0: w_reg +1;
+    r_prt = (r_reg == DEPTH -1) ? 0: r_reg +1;
+    w_prt = (w_reg == DEPTH -1) ? 0: w_reg +1;
     case({write,read})
       2'b10:
         if(~full_reg)
@@ -86,7 +86,7 @@ input clk,
               write_enable =1'b1;
               read_enable  =1'b1;
               w_next=w_prt;
-               r_next=r_ptr;
+              r_next=r_ptr;
              end
         end
     endcase
