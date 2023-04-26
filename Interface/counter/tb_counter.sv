@@ -9,7 +9,8 @@ module tb_counter;
   
   always #5 clk=~clk;
   counter_if c_if(clk);
-  counter DUT(.clk(c_if.clk),
+//counter_if _if(clk);
+/*  counter DUT(.clk(c_if.clk),
                    .srst_n(c_if.srst_n),
                    .load(c_if.load),
                    .down(c_if.down),
@@ -18,6 +19,8 @@ module tb_counter;
                    .rollover(c_if.rollover),
                    .count(c_if.count)
                   );
+*/
+counter_wif dut_wif(c_if);
   
   
   
@@ -26,7 +29,7 @@ module tb_counter;
   
   initial begin
     $dumpfile("testbench.vcd");
-    $dumpvars(0,tb_counter);
+    $dumpvars(1,tb_counter);
   	c_if.srst_n=0;
     repeat(10)@ (posedge clk);
     c_if.srst_n=1;
@@ -39,28 +42,73 @@ module tb_counter;
     c_if.up= 0;
     c_if.down=0;
     c_if.load=1;
-    c_if.load='haa;
+    c_if.data='haa;
     repeat(2)@ (posedge clk);
     c_if.up= 0;
     c_if.down=0;
     c_if.load=1;
-    c_if.load='haa;
+    c_if.data='haa;
     
-    repeat($urandom_range(1,20))@ (posedge clk);
+    repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
+    c_if.load=$random();
+    c_if.data=$random();
+     repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
+    c_if.load=$random();
+    c_if.data=$random();
+      repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
+    c_if.data=$random();
+    c_if.load=$random();
+  repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
+    c_if.data=$random();
+    c_if.load=$random();
+      repeat(20)@ (posedge clk);
     c_if.up=$random();
     c_if.down=$random();
     c_if.load=$random();
     c_if.load=$random();
-     repeat($urandom_range(1,20))@ (posedge clk);
+      repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
+    c_if.data=$random();
+    c_if.load=$random();
+  repeat(20)@ (posedge clk);
     c_if.up=$random();
     c_if.down=$random();
     c_if.load=$random();
-    c_if.load=$random();
-     repeat($urandom_range(1,20))@ (posedge clk);
+    c_if.data=$random();
+     repeat(20)@ (posedge clk);
     c_if.up=$random();
     c_if.down=$random();
     c_if.load=$random();
+    c_if.data=$random();
+      repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
     c_if.load=$random();
+    c_if.data=$random();
+  repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
+    c_if.load=$random();
+    c_if.data=$random();
+      repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
+    c_if.load=$random();
+    c_if.data=$random();
+      repeat(20)@ (posedge clk);
+    c_if.up=$random();
+    c_if.down=$random();
+    c_if.load=$random();
+    c_if.data=$random();
   $stop();
   end
   

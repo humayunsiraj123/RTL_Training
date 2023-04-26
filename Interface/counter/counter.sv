@@ -39,3 +39,23 @@ interface counter_if#(parameter W=8)(input bit clk);
 endinterface
 
 
+
+module counter_wif#(parameter W=8)(counter_if c_if);
+always_ff @(posedge c_if.clk)
+begin
+if(~c_if.srst_n)
+c_if.count <=0;
+else
+	if(c_if.load)
+		c_if.count<=c_if.data;
+	else
+		if(c_if.up && ~c_if.down)
+			c_if.count<=c_if.count+1;
+		if(~c_if.up && c_if.down)
+			c_if.count<=c_if.count-1;
+end
+
+assign c_if.rollover =& c_if.count;
+endmodule
+
+
