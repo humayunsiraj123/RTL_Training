@@ -26,7 +26,7 @@ module bin_to_grey_nbits#(paramter N=8) (
       if(i ==N)
         grey[N] =bin[N];
     else 
-      grey[i]=grey[i+1] ^bin[i];
+      grey[i]=bin[i+1] ^bin[i];
   endgenerate
   
 endmodule
