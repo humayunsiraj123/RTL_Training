@@ -22,7 +22,7 @@ module bin_to_grey_nbits#(paramter N=8) (
     
   genvar i
   generate
-    for( i =N-1 ;i>0;i=i-1)
+    for( i =N-1 ;i>=0;i=i-1)
       if(i ==N-1)
         grey[N-1] =bin[N-1];
     else 
