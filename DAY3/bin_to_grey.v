@@ -6,10 +6,10 @@
 // );
   
 //   assign grey[4] = bin[4]           ;
-//   assign grey[3] = grey[4] ^ bin[3] ;
-//   assign grey[2] = grey[3] ^ bin[2] ;
-//   assign grey[1] = grey[2] ^ bin[1] ;
-//   assign grey[0] = grey[1] ^ bin[0] ;
+//   assign grey[3] = bin[4] ^ bin[3] ;
+//   assign grey[2] = bin[3] ^ bin[2] ;
+//   assign grey[1] = bin[2] ^ bin[1] ;
+//   assign grey[0] = bin[1] ^ bin[0] ;
 // endmodule
 
 
