@@ -15,7 +15,8 @@ module grey_counter(
 end 
 
 assign count ={bin[2],bin[2]^bin[1],bin[1]^bin[0]};
-
+//assign count =bin>>1 ^ bin;
+	
 endmodule
 
 
@@ -48,5 +49,8 @@ begin
 q[N-1]=bin[N-1];
 foreach(bin[i])
 q[i-1]=bin[i]^bin[i-1];
+	//bin[i] = ^ grey>>i;
 end
+	
+	
 endmodule
