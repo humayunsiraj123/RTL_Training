@@ -52,5 +52,29 @@ q[i-1]=bin[i]^bin[i-1];
 	//bin[i] = ^ grey>>i;
 end
 	
+endmodule
+module grey_count_2#(parameter N=8)( input  clk,
+				    input srst,
+				    output logic [N-1:0] grey);
+	logic [N-1:0] bin;
+	logic [N-1:0] grey_next;
+	logic [N-1:0] bin_next;
+	always_ff @(posedge clk)
+		if(srst)
+			begin
+			grey<=0;
+			bin <=0;
+			end
+				else
+			
+					begin
+						grey <= grey_next;
+			bin <=grey_next;
+					end
+	always_comb 
+		begin
+			bin_next= bin!== {WIDTH{1'b1}}? bin +1 :0 ;
+			grey_next= (bin_next>>1) ^ bin_next;
+		end
 	
 endmodule
