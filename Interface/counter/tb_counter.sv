@@ -9,17 +9,27 @@ module tb_counter;
   
   always #5 clk=~clk;
   counter_if c_if(clk);
-//counter_if _if(clk);
-/*  counter DUT(.clk(c_if.clk),
-                   .srst_n(c_if.srst_n),
-                   .load(c_if.load),
-                   .down(c_if.down),
-                   .up(c_if.up),
-                   .data(c_if.data),
-                   .rollover(c_if.rollover),
-                   .count(c_if.count)
+  _if.srst_n=c_if.srst_n;
+  _if.load=c_if.load;
+  _if.up=c_if.up;
+  _if.down=c_if.down;
+  _if.data=c_if.data;
+  
+  
+  
+  
+  
+counter_if _if(clk);
+/ counter DUT(.clk(_if.clk),
+                   .srst_n(_if.srst_n),
+              .load(_if.load),
+                   .down(_if.down),
+                   .up(_if.up),
+                   .data(_if.data),
+                   .rollover(_if.rollover),
+                   .count(_if.count)
                   );
-*/
+
 counter_wif dut_wif(c_if);
   
   
