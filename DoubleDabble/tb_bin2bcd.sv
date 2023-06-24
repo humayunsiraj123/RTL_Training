@@ -16,11 +16,15 @@ int i;
     bcd[7:4] =bcd[7:4]>=5?bcd[7:4]+3'd3: bcd[7:4];
     bcd[11:8] =bcd[11:8]>=5?bcd[11:8]+3'd3: bcd[11:8];
       end
-   
+
+
+    
     
   end
   end
 endmodule
+
+
 
 module  tb_bin2bcd;
   
@@ -63,3 +67,6 @@ module  tb_bin2bcd;
  	 end
   end
 endmodule
+
+
+
