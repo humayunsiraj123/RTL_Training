@@ -26,6 +26,9 @@ endmodule
 
 
 
+
+
+
 module  tb_bin2bcd;
   
   logic [7:0]bin;
