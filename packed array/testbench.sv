@@ -4,7 +4,11 @@ module tb;
   bit [7:0] data;
   bit[3:0][7:0]data2;
   bit[2:0][3:0][7:0]data3;
-  
+  bit[31:0]data4;
+  bit[3:0][7:0]data5;
+  bit[3:0][7:0]data6;
+  //assign data5 = data4;
+  parameter x=8;
   initial begin
     data=8'hA8;
     $display(".............1D packed array ............ ");
@@ -34,8 +38,27 @@ module tb;
                    end
                  end
                  
+    data4=32'hff_aa_bb_cc;//we can use complete pack to like m*n or [m:0][n:0] is same
+    data5=32'd12_23_45_65;
+    
+    data6={x'(data4),x'('hfff)};//static typecasting 
+                $display(".............2D packed array ............ ");
+    for( int i =0;i<4;i++)
+      begin
+        $display("the bit at index %d is %h",i,data5[i]);
+      end
+    foreach(data5[i])
+      $display("the bit at index %d is %d",i,data5[i]);
+    
+    foreach(data6[k])
+      $display("the bit at index %d is %h",k,data6[k]);
+      
+      
+    
+    
                   end
-                 endmodule
+ 
+endmodule
   
   
   
