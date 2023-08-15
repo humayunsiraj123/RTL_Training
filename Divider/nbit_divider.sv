@@ -10,11 +10,13 @@ logic [2**WIDTH -1 :0 ]N;
 always_comb begin : proc_
 	for(int ii =WIDTH-1 ; ii>=0;ii--)
 		if(i==WIDTH-1)		
-			for(int jj =WIDTH-1;jj>=0;jj--)
-
+			for(int jj = WIDTH-1;jj>=0;jj--)
+				div_block db ('b0,!b[jj]);
 
 
  
+
+
 
 
  end 
