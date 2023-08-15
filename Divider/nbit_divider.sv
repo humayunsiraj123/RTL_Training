@@ -4,17 +4,21 @@ module nbit_divider#( WIDTH=4)(
 	output logic [WIDTH-1:0]Q
 	);
 
-logic [2**WIDTH -1 :0 ]N;
+logic [2**WIDTH -1 :0 ]n;
+logic [WIDTH-1:0][WIDTH-1:0]pr;
 
 
 always_comb begin : proc_
 	for(int ii =WIDTH-1 ; ii>=0;ii--)
-		if(i==WIDTH-1)		
+		if(ii==WIDTH-1)		
 			for(int jj = WIDTH-1;jj>=0;jj--)
-				div_block db ('b0,!b[jj]);
+        if(jj==WIDTH-1)
+						div_block db('b0,!b[jj],1'b1,n[(ii+1)*(jj+1)-1],pr[ii][jj] ;
 
 
  
+
+
 
 
 
