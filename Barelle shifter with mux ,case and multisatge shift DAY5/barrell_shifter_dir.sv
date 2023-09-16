@@ -44,5 +44,6 @@ begin
 				else
 					stage[i] = cntrl[i]? stage[i-1]<<<2**i:stage[i-1];
 		endcase // dir
-
+data_out = stage[NUM_STAGE-1];
+end
 endmodule
